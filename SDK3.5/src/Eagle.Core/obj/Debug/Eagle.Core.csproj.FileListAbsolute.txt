@@ -1,0 +1,11 @@
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Eagle.Core.dll
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Eagle.Core.pdb
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Castle.Core.dll
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\log4net.dll
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Microsoft.Practices.Unity.dll
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Ninject.dll
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Microsoft.Practices.Unity.xml
+C:\MyProjects\Eagle\src\Eagle.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\MyProjects\Eagle\src\Eagle.Core\obj\Debug\Eagle.Core.dll
+C:\MyProjects\Eagle\src\Eagle.Core\obj\Debug\Eagle.Core.pdb

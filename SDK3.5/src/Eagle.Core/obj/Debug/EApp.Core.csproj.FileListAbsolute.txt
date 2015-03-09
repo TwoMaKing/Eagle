@@ -1,0 +1,12 @@
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\EApp.Core.dll
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\EApp.Core.pdb
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\obj\Debug\EApp.Core.dll
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\obj\Debug\EApp.Core.pdb
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\Castle.Core.dll
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\Microsoft.Practices.Unity.dll
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\Microsoft.Practices.Unity.xml
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\log4net.dll
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\bin\Debug\Ninject.dll
+C:\MyProjects\GitHub WorkSpace\EApp\EApp.Core\obj\Debug\EApp.Core.csprojResolveAssemblyReference.cache

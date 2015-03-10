@@ -61,17 +61,17 @@ namespace Eagle.Tests.Repositories
             throw new NotImplementedException();
         }
 
-        protected override void DoAdd(IEnumerable<User> aggregateRoots)
+        protected override void DoAdd(User user)
         {
             throw new NotImplementedException();
         }
 
-        protected override void DoUpdate(IEnumerable<User> aggregateRoots)
+        protected override void DoUpdate(User user)
         {
             throw new NotImplementedException();
         }
 
-        protected override void DoDelete(IEnumerable<User> aggregateRoots)
+        protected override void DoDelete(User user)
         {
             throw new NotImplementedException();
         }

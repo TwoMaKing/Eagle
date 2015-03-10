@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Eagle.Core.Generators;
 
 namespace Eagle.Domain.Commands
 {
     [Serializable()]
     public class Command : ICommand
     {
-        public int Id
+        public Command()
+        {
+            this.Id = (Guid)IdentityGenerator.Instance.Generate();
+        }
+
+        public Guid Id
         {
             get;
             set;

@@ -53,6 +53,15 @@
     <Compile Include="Application\DataTransferObjectBase.cs" />
     <Compile Include="Application\IApplicationServiceContract.cs" />
     <Compile Include="Application\IDataTransferObject.cs" />
+    <Compile Include="EventSourceAggregateRoot.cs" />
+    <Compile Include="Events\Storage\DbDomainEventStorage.cs" />
+    <Compile Include="Events\DomainEventHandleAttribute.cs" />
+    <Compile Include="Events\Storage\IDomainEventStorage.cs" />
+    <Compile Include="Events\Storage\InMemoryDomainEventStorage.cs" />
+    <Compile Include="IEventSourceAggregateRoot.cs" />
+    <Compile Include="Repositories\EventPublisherDomainRepository.cs" />
+    <Compile Include="Repositories\EventSourceDomainRepository.cs" />
+    <Compile Include="Repositories\IDomainRepository.cs" />
     <Compile Include="Repositories\RepositoryException.cs" />
     <Compile Include="TypePropertiesCache.cs" />
     <Compile Include="DirectBus\DirectBus.cs" />
@@ -79,7 +88,7 @@
     <Compile Include="Events\IDomainEventHandler.cs" />
     <Compile Include="Events\ActionDelegateEventHandler.cs" />
     <Compile Include="Events\EventAggregator.cs" />
-    <Compile Include="Events\HandleAsynchronizationAttribute.cs" />
+    <Compile Include="Events\AsyncExecutionAttribute.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\IEventAggregator.cs" />
     <Compile Include="Events\IEventHandler.cs" />

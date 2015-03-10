@@ -16,7 +16,7 @@ namespace Eagle.Domain.Events
             this.source = source;
         }
 
-        public int Id
+        public Guid Id
         {
             get;
             set;
@@ -28,14 +28,65 @@ namespace Eagle.Domain.Events
             {
                 return this.source;
             }
+            set
+            {
+                this.source = value;
+            }
         }
 
-        public DateTime TimeStamp
+        public DateTime Timestamp
         {
             get 
             {
                 return this.timestamp;
             }
+            set
+            {
+                this.timestamp = value;
+            }
+        }
+
+        public long Version
+        {
+            get;
+            set;
+        }
+
+        public long Branch
+        {
+            get;
+            set;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj == null)
+            {
+                return false;
+            }
+
+            DomainEvent other = obj as DomainEvent;
+
+            if ((object)other == (object)null)
+            {
+                return false;
+            }
+
+            return this.Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Utils.GetHashCode(this.Source.GetHashCode(),
+                                     this.Branch.GetHashCode(),
+                                     this.Id.GetHashCode(),
+                                     this.Timestamp.GetHashCode(),
+                                     this.Version.GetHashCode());
         }
     }
 }

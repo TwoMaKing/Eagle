@@ -66,6 +66,11 @@
 					<xs:documentation>The Handlers.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element minOccurs="0" name="generators" type="tns:EApp.Core.Configuration.GeneratorsElementCT">
+				<xs:annotation>
+					<xs:documentation>The Generators.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="EApp.Core.Configuration.CurrentObjectContainerElementCT">
@@ -84,6 +89,11 @@
 		<xs:attribute name="sectionName" use="optional" type="xs:string">
 			<xs:annotation>
 				<xs:documentation>The SectionName.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="file" use="optional" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>The File.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
@@ -398,5 +408,19 @@
 				<xs:documentation>The Kind.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="EApp.Core.Configuration.GeneratorsElementCT">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="sequenceGenerator" type="tns:EApp.Core.Configuration.SingleProviderElementCT">
+				<xs:annotation>
+					<xs:documentation>The SequenceGenerator.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="identityGenerator" type="tns:EApp.Core.Configuration.SingleProviderElementCT">
+				<xs:annotation>
+					<xs:documentation>The IdentityGenerator.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

@@ -117,49 +117,31 @@ namespace Eagle.Tests.Repositories
             return new string[] { "post_id", "post_topic_id", "post_author_id", "post_content", "post_creation_datetime", "topic_name", "user_name" };
         }
 
-        protected override void DoAdd(IEnumerable<Post> aggregateRoots)
+        protected override void DoAdd(Post post)
         {
-            if (aggregateRoots != null)
-            {
-                foreach (Post post in aggregateRoots)
-                {
-                    this.SqlRepositoryContext.Insert("post",
-                                                      new object[] { post.Topic.Id, 
-                                                                     post.Author.Id, 
-                                                                     post.Content, 
-                                                                     post.CreationDateTime });
-                }
-            }
+            this.SqlRepositoryContext.Insert("post",
+                                                new object[] { post.Topic.Id, 
+                                                                post.Author.Id, 
+                                                                post.Content, 
+                                                                post.CreationDateTime });
         }
 
-        protected override void DoUpdate(IEnumerable<Post> aggregateRoots)
+        protected override void DoUpdate(Post post)
         {
-            if (aggregateRoots != null)
-            {
-                foreach (Post post in aggregateRoots)
-                {
-                    this.SqlRepositoryContext.Update("post",
-                                                     new string[] { "post_topic_id", "post_author_id", "content" },
-                                                     new object[] { post.Topic.Id, 
-                                                                    post.Author.Id, 
-                                                                    post.Content },
-                                                     "post_id=@post_id",
-                                                     new object[] { post.Id });
-                }
-            }
+            this.SqlRepositoryContext.Update("post",
+                                                new string[] { "post_topic_id", "post_author_id", "content" },
+                                                new object[] { post.Topic.Id, 
+                                                            post.Author.Id, 
+                                                            post.Content },
+                                                "post_id=@post_id",
+                                                new object[] { post.Id });
         }
 
-        protected override void DoDelete(IEnumerable<Post> aggregateRoots)
+        protected override void DoDelete(Post post)
         {
-            if (aggregateRoots != null)
-            {
-                foreach (Post post in aggregateRoots)
-                {
-                    this.SqlRepositoryContext.Delete("post",
-                                                     "post_id=@post_id",
-                                                      new object[] { post.Id });
-                }
-            }
+            this.SqlRepositoryContext.Delete("post",
+                                             "post_id=@post_id",
+                                              new object[] { post.Id });
         }
     }
 }

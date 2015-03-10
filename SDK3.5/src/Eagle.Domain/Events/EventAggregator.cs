@@ -181,7 +181,7 @@ namespace Eagle.Domain.Events
                     IEventHandler<TEvent> eventHandler = handlerObject as IEventHandler<TEvent>;
                     
                     // Async parallel Operation
-                    if (eventHandler.GetType().IsDefined(typeof(HandleAsynchronizationAttribute), false))
+                    if (eventHandler.GetType().IsDefined(typeof(AsyncExecutionAttribute), false))
                     {
 
                     }

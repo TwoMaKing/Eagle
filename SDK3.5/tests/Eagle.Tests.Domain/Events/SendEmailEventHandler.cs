@@ -6,7 +6,7 @@ using Eagle.Domain.Events;
 
 namespace Eagle.Tests.Domain.Events
 {
-    [HandleAsynchronization()]
+    [AsyncExecution()]
     public class SendEmailEventHandler : IEventHandler<OrderConfirmEvent>
     {
         public void Handle(OrderConfirmEvent t)

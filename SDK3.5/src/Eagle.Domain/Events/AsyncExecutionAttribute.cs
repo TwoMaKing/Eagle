@@ -9,7 +9,7 @@ namespace Eagle.Domain.Events
     /// Represents this is an asynchronization event/command hanlder
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, Inherited=false)]
-    public class HandleAsynchronizationAttribute : Attribute
+    public class AsyncExecutionAttribute : Attribute
     {
 
     }

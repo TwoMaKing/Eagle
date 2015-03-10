@@ -20,39 +20,24 @@ namespace Eagle.Domain.Repositories
         IRepositoryContext RepositoryContext { get; }
 
         /// <summary>
-        ///  Aadd a item to Repository.
+        ///  Aadd an aggregate root to Repository.
         /// </summary>
         void Add(TAggregateRoot aggregateRoot);
 
         /// <summary>
-        /// Add items to Repository.
-        /// </summary>
-        void Add(IEnumerable<TAggregateRoot> aggregateRoots);
-
-        /// <summary>
-        /// Update a item to Repository.
+        /// Update an aggregate root to Repository.
         /// </summary>
         void Update(TAggregateRoot aggregateRoot);
 
         /// <summary>
-        /// Update items to Repository.
-        /// </summary>
-        void Update(IEnumerable<TAggregateRoot> aggregateRoots);
-
-        /// <summary>
-        /// Delete the specified item from Repository.
+        /// Delete the specified aggregate root from Repository.
         /// </summary>
         void Delete(TAggregateRoot aggregateRoot);
 
         /// <summary>
-        /// Delete a item from Repository by item key.
+        /// Delete an aggregate root from Repository by item key.
         /// </summary>
         void Delete(TIdentityKey id);
-
-        /// <summary>
-        /// Delete specified items from Repository.
-        /// </summary>
-        void Delete(IEnumerable<TAggregateRoot> aggregateRoots);
 
         /// <summary>
         /// Find the specific aggregate root by id or key.

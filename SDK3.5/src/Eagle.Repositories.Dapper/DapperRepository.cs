@@ -61,49 +61,31 @@ namespace Eagle.Repositories.Dapper
 
         #region Aggregate root Creation/Update/Deletion using Dapper
 
-        protected override void DoAdd(IEnumerable<TAggregateRoot> aggregateRoots)
+        protected override void DoAdd(TAggregateRoot aggregateRoot)
         {
-            if (aggregateRoots != null)
-            {
-                foreach (TAggregateRoot aggregateRoot in aggregateRoots)
-                {
-                    string insertSqlStatement = this.GetAggregateRootInsertSqlStatement();
+            string insertSqlStatement = this.GetAggregateRootInsertSqlStatement();
 
-                    object insertParameters = this.GetAggregateRootInsertParameters(aggregateRoot);
+            object insertParameters = this.GetAggregateRootInsertParameters(aggregateRoot);
 
-                    this.DapperRepositoryContext.RegisterAdded(new CommandSqlParameters { CommandSql = insertSqlStatement, Parameters = insertParameters });
-                }
-            }
+            this.DapperRepositoryContext.RegisterAdded(new CommandSqlParameters { CommandSql = insertSqlStatement, Parameters = insertParameters });
         }
 
-        protected override void DoUpdate(IEnumerable<TAggregateRoot> aggregateRoots)
+        protected override void DoUpdate(TAggregateRoot aggregateRoot)
         {
-            if (aggregateRoots != null)
-            {
-                foreach (TAggregateRoot aggregateRoot in aggregateRoots)
-                {
-                    string updateSqlStatement = this.GetAggregateRootUpdateSqlStatement();
+            string updateSqlStatement = this.GetAggregateRootUpdateSqlStatement();
 
-                    object updateParameters = this.GetAggregateRootUpdateParameters(aggregateRoot);
+            object updateParameters = this.GetAggregateRootUpdateParameters(aggregateRoot);
 
-                    this.DapperRepositoryContext.RegisterModified(new CommandSqlParameters { CommandSql = updateSqlStatement, Parameters = updateParameters });
-                }
-            }
+            this.DapperRepositoryContext.RegisterModified(new CommandSqlParameters { CommandSql = updateSqlStatement, Parameters = updateParameters });
         }
 
-        protected override void DoDelete(IEnumerable<TAggregateRoot> aggregateRoots)
+        protected override void DoDelete(TAggregateRoot aggregateRoot)
         {
-            if (aggregateRoots != null)
-            {
-                foreach (TAggregateRoot aggregateRoot in aggregateRoots)
-                {
-                    string deleteSqlStatement = this.GetAggregateRootDeleteSqlStatement();
+            string deleteSqlStatement = this.GetAggregateRootDeleteSqlStatement();
 
-                    object deleteParameters = this.GetAggregateRootDeleteParameters(aggregateRoot);
+            object deleteParameters = this.GetAggregateRootDeleteParameters(aggregateRoot);
 
-                    this.DapperRepositoryContext.RegisterDeleted(new CommandSqlParameters { CommandSql = deleteSqlStatement, Parameters = deleteParameters });
-                }
-            }
+            this.DapperRepositoryContext.RegisterDeleted(new CommandSqlParameters { CommandSql = deleteSqlStatement, Parameters = deleteParameters });
         }
 
         protected override void DoDelete(int id)

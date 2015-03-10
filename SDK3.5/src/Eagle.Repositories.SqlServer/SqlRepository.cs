@@ -197,6 +197,5 @@ namespace Eagle.Repositories.Sql
         protected abstract Dictionary<string, AppendChildToAggregateRoot> BuildChildCallbacks();
 
         #endregion
-
     }
 }

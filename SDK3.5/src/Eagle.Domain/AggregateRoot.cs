@@ -17,7 +17,7 @@ namespace Eagle.Domain
 
             foreach (IEventHandler<TDomainEvent> eventHandler in eventHandlers)
             {
-                if (eventHandler.GetType().IsDefined(typeof(HandleAsynchronizationAttribute), false))
+                if (eventHandler.GetType().IsDefined(typeof(AsyncExecutionAttribute), false))
                 {
                 
                 }

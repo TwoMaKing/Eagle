@@ -11,7 +11,6 @@
 namespace Eagle.Core.Configuration
 {
     
-    
     /// <summary>
     /// The EAppConfigurationSection Configuration Section.
     /// </summary>
@@ -359,6 +358,32 @@ namespace Eagle.Core.Configuration
             }
         }
         #endregion
+        
+        #region Generators Property
+        /// <summary>
+        /// The XML name of the <see cref="Generators"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
+        internal const string GeneratorsPropertyName = "generators";
+        
+        /// <summary>
+        /// Gets or sets the Generators.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
+        [global::System.ComponentModel.DescriptionAttribute("The Generators.")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Eagle.Core.Configuration.EAppConfigurationSection.GeneratorsPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        public virtual global::Eagle.Core.Configuration.GeneratorsElement Generators
+        {
+            get
+            {
+                return ((global::Eagle.Core.Configuration.GeneratorsElement)(base[global::Eagle.Core.Configuration.EAppConfigurationSection.GeneratorsPropertyName]));
+            }
+            set
+            {
+                base[global::Eagle.Core.Configuration.EAppConfigurationSection.GeneratorsPropertyName] = value;
+            }
+        }
+        #endregion
     }
 }
 namespace Eagle.Core.Configuration
@@ -459,29 +484,29 @@ namespace Eagle.Core.Configuration
             }
         }
         #endregion
-
-        #region ConfigFilePath Property
+        
+        #region File Property
         /// <summary>
         /// The XML name of the <see cref="File"/> property.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
-        internal const string ConfigFilePathPropertyName = "file";
-
+        internal const string FilePropertyName = "file";
+        
         /// <summary>
-        /// Gets or sets the ConfigFilePath.
+        /// Gets or sets the File.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
-        [global::System.ComponentModel.DescriptionAttribute("The ConfigFilePath.")]
-        [global::System.Configuration.ConfigurationPropertyAttribute(global::Eagle.Core.Configuration.CurrentObjectContainerElement.ConfigFilePathPropertyName, IsRequired = false, IsKey = false, IsDefaultCollection = false)]
+        [global::System.ComponentModel.DescriptionAttribute("The File.")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Eagle.Core.Configuration.CurrentObjectContainerElement.FilePropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
         public virtual string File
         {
             get
             {
-                return ((string)(base[global::Eagle.Core.Configuration.CurrentObjectContainerElement.ConfigFilePathPropertyName]));
+                return ((string)(base[global::Eagle.Core.Configuration.CurrentObjectContainerElement.FilePropertyName]));
             }
             set
             {
-                base[global::Eagle.Core.Configuration.CurrentObjectContainerElement.ConfigFilePathPropertyName] = value;
+                base[global::Eagle.Core.Configuration.CurrentObjectContainerElement.FilePropertyName] = value;
             }
         }
         #endregion
@@ -3108,6 +3133,80 @@ namespace Eagle.Core.Configuration
             set
             {
                 base[global::Eagle.Core.Configuration.HandlerElement.KindPropertyName] = value;
+            }
+        }
+        #endregion
+    }
+}
+namespace Eagle.Core.Configuration
+{
+    
+    
+    /// <summary>
+    /// The GeneratorsElement Configuration Element.
+    /// </summary>
+    public partial class GeneratorsElement : global::System.Configuration.ConfigurationElement
+    {
+        
+        #region IsReadOnly override
+        /// <summary>
+        /// Gets a value indicating whether the element is read-only.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
+        public override bool IsReadOnly()
+        {
+            return false;
+        }
+        #endregion
+        
+        #region SequenceGenerator Property
+        /// <summary>
+        /// The XML name of the <see cref="SequenceGenerator"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
+        internal const string SequenceGeneratorPropertyName = "sequenceGenerator";
+        
+        /// <summary>
+        /// Gets or sets the SequenceGenerator.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
+        [global::System.ComponentModel.DescriptionAttribute("The SequenceGenerator.")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Eagle.Core.Configuration.GeneratorsElement.SequenceGeneratorPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        public virtual global::Eagle.Core.Configuration.SingleProviderElement SequenceGenerator
+        {
+            get
+            {
+                return ((global::Eagle.Core.Configuration.SingleProviderElement)(base[global::Eagle.Core.Configuration.GeneratorsElement.SequenceGeneratorPropertyName]));
+            }
+            set
+            {
+                base[global::Eagle.Core.Configuration.GeneratorsElement.SequenceGeneratorPropertyName] = value;
+            }
+        }
+        #endregion
+        
+        #region IdentityGenerator Property
+        /// <summary>
+        /// The XML name of the <see cref="IdentityGenerator"/> property.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
+        internal const string IdentityGeneratorPropertyName = "identityGenerator";
+        
+        /// <summary>
+        /// Gets or sets the IdentityGenerator.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ConfigurationSectionDesigner.CsdFileGenerator", "2.0.0.5")]
+        [global::System.ComponentModel.DescriptionAttribute("The IdentityGenerator.")]
+        [global::System.Configuration.ConfigurationPropertyAttribute(global::Eagle.Core.Configuration.GeneratorsElement.IdentityGeneratorPropertyName, IsRequired=false, IsKey=false, IsDefaultCollection=false)]
+        public virtual global::Eagle.Core.Configuration.SingleProviderElement IdentityGenerator
+        {
+            get
+            {
+                return ((global::Eagle.Core.Configuration.SingleProviderElement)(base[global::Eagle.Core.Configuration.GeneratorsElement.IdentityGeneratorPropertyName]));
+            }
+            set
+            {
+                base[global::Eagle.Core.Configuration.GeneratorsElement.IdentityGeneratorPropertyName] = value;
             }
         }
         #endregion

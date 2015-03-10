@@ -8,11 +8,11 @@ namespace Eagle.Domain.Events
     /// <summary>
     /// Represent the class which implements the interface is a event data type.
     /// </summary>
-    public interface IEvent : IEntity<int>, IEntity
+    public interface IEvent : IEntity<Guid>
     {
         /// <summary>
         /// The date time when generates this event. It can be UTC time.
         /// </summary>
-        DateTime TimeStamp { get; }
+        DateTime Timestamp { get; set; }
     }
 }

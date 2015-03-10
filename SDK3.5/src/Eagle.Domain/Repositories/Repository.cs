@@ -34,29 +34,14 @@ namespace Eagle.Domain.Repositories
             this.DoAdd(aggregateRoot);
         }
 
-        public void Add(IEnumerable<TAggregateRoot> aggregateRoots)
-        {
-            this.DoAdd(aggregateRoots);
-        }
-
         public void Update(TAggregateRoot aggregateRoot)
         {
             this.DoUpdate(aggregateRoot);
         }
 
-        public void Update(IEnumerable<TAggregateRoot> aggregateRoots)
-        {
-            this.DoUpdate(aggregateRoots);
-        }
-
         public void Delete(TAggregateRoot aggregateRoot)
         {
             this.DoDelete(aggregateRoot);
-        }
-
-        public void Delete(IEnumerable<TAggregateRoot> aggregateRoots)
-        {
-            this.DoDelete(aggregateRoots);
         }
 
         public void Delete(int id)
@@ -148,26 +133,11 @@ namespace Eagle.Domain.Repositories
 
         #region Aggregate root Creation/Update/Deletion
 
-        protected virtual void DoAdd(TAggregateRoot aggregateRoot)
-        {
-            this.DoAdd(new TAggregateRoot[] { aggregateRoot });
-        }
+        protected abstract void DoAdd(TAggregateRoot aggregateRoot);
 
-        protected abstract void DoAdd(IEnumerable<TAggregateRoot> aggregateRoots);
+        protected abstract void DoUpdate(TAggregateRoot aggregateRoot);
 
-        protected virtual void DoUpdate(TAggregateRoot aggregateRoot)
-        {
-            this.DoUpdate(new TAggregateRoot[] { aggregateRoot });
-        }
-
-        protected abstract void DoUpdate(IEnumerable<TAggregateRoot> aggregateRoots);
-
-        protected virtual void DoDelete(TAggregateRoot aggregateRoot) 
-        {
-            this.DoDelete(new TAggregateRoot[] { aggregateRoot });
-        }
-
-        protected abstract void DoDelete(IEnumerable<TAggregateRoot> aggregateRoots);
+        protected abstract void DoDelete(TAggregateRoot aggregateRoot);
 
         protected abstract void DoDelete(int id);
 

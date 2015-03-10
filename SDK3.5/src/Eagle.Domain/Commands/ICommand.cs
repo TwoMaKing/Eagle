@@ -9,7 +9,7 @@ namespace Eagle.Domain.Commands
     /// <summary>
     /// Used for CQRS. The implemented classes is commands  
     /// </summary>
-    public interface ICommand : IEntity<int>, IEntity
+    public interface ICommand : IEntity<Guid>
     {
 
     }

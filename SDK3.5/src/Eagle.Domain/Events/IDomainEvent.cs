@@ -13,6 +13,10 @@ namespace Eagle.Domain.Events
         /// <summary>
         /// The source which generate this event.
         /// </summary>
-        IEntity Source { get; }
+        IEntity Source { get; set; }
+
+        long Version { get; set; }
+
+        long Branch { get; set; }
     }
 }

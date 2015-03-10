@@ -68,6 +68,11 @@
             <configurationElementCollectionMoniker name="/6ef3f9ad-8dfe-4172-a7c4-a6c8ea1c07b5/HandlerElementCollection" />
           </type>
         </elementProperty>
+        <elementProperty name="Generators" isRequired="false" isKey="false" isDefaultCollection="false" xmlName="generators" isReadOnly="false">
+          <type>
+            <configurationElementMoniker name="/6ef3f9ad-8dfe-4172-a7c4-a6c8ea1c07b5/GeneratorsElement" />
+          </type>
+        </elementProperty>
       </elementProperties>
     </configurationSection>
     <configurationElement name="CurrentObjectContainerElement">
@@ -385,6 +390,20 @@
           </type>
         </attributeProperty>
       </attributeProperties>
+    </configurationElement>
+    <configurationElement name="GeneratorsElement">
+      <elementProperties>
+        <elementProperty name="SequenceGenerator" isRequired="false" isKey="false" isDefaultCollection="false" xmlName="sequenceGenerator" isReadOnly="false">
+          <type>
+            <configurationElementMoniker name="/6ef3f9ad-8dfe-4172-a7c4-a6c8ea1c07b5/SingleProviderElement" />
+          </type>
+        </elementProperty>
+        <elementProperty name="IdentityGenerator" isRequired="false" isKey="false" isDefaultCollection="false" xmlName="identityGenerator" isReadOnly="false">
+          <type>
+            <configurationElementMoniker name="/6ef3f9ad-8dfe-4172-a7c4-a6c8ea1c07b5/SingleProviderElement" />
+          </type>
+        </elementProperty>
+      </elementProperties>
     </configurationElement>
   </configurationElements>
   <propertyValidators>

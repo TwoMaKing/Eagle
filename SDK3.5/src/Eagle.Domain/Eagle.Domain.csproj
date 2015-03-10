@@ -54,11 +54,13 @@
     <Compile Include="Application\IApplicationServiceContract.cs" />
     <Compile Include="Application\IDataTransferObject.cs" />
     <Compile Include="EventSourceAggregateRoot.cs" />
+    <Compile Include="Events\InlineDomainEventHandler.cs" />
     <Compile Include="Events\Storage\DbDomainEventStorage.cs" />
     <Compile Include="Events\DomainEventHandleAttribute.cs" />
     <Compile Include="Events\Storage\IDomainEventStorage.cs" />
     <Compile Include="Events\Storage\InMemoryDomainEventStorage.cs" />
     <Compile Include="IEventSourceAggregateRoot.cs" />
+    <Compile Include="Repositories\DomainRepository.cs" />
     <Compile Include="Repositories\EventPublisherDomainRepository.cs" />
     <Compile Include="Repositories\EventSourceDomainRepository.cs" />
     <Compile Include="Repositories\IDomainRepository.cs" />

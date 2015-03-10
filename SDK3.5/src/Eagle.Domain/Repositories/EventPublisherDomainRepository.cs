@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Eagle.Domain.Repositories
 {
-    public abstract class EventPublisherDomainRepository : IDomainRepository
+    public abstract class EventPublisherDomainRepository : DomainRepository
     {
         private IEventBus eventBus;
 
@@ -15,7 +15,7 @@ namespace Eagle.Domain.Repositories
             this.eventBus = eventBus;
         }
 
-        protected IEventBus EventBus
+        public IEventBus EventBus 
         {
             get 
             {
@@ -23,39 +23,27 @@ namespace Eagle.Domain.Repositories
             }
         }
 
-        public TAggregateRoot Get<TAggregateRoot>(int Id) where TAggregateRoot : class, IEventSourceAggregateRoot
+        protected override void DoRollback()
         {
-            throw new NotImplementedException();
+            this.eventBus.Rollback();
         }
 
-        public void Save<TAggregateRoot>(TAggregateRoot aggregateRoot) where TAggregateRoot : class, IEventSourceAggregateRoot
+        protected override void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if (disposing)
+            {
+                this.eventBus.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
 
-        public bool DistributedTransactionSupported
+        public override bool DistributedTransactionSupported
         {
-            get { throw new NotImplementedException(); }
-        }
-
-        public bool Committed
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public void Commit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Rollback()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+            get 
+            { 
+                return this.eventBus.DistributedTransactionSupported; 
+            }
         }
     }
 }

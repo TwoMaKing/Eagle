@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Eagle.Core.Generators;
+using Eagle.Domain.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
-using Eagle.Core.Generators;
-using Eagle.Domain.Events;
 
 namespace Eagle.Domain
 {
@@ -13,8 +14,9 @@ namespace Eagle.Domain
         private long version = 0;
         private long eventVersion = 0;
         private long branch = 0;
+
         private readonly List<IDomainEvent> uncommittedEvents = new List<IDomainEvent>();
-        private readonly Dictionary<Type, List<object>> domainEventHandlers = new Dictionary<Type, List<object>>();
+        private readonly Dictionary<Type, List<object>> domainEventHandlers = new Dictionary<Type,List<object>>();
 
         public EventSourceAggregateRoot()
         {
@@ -22,7 +24,48 @@ namespace Eagle.Domain
         }
 
         #region Private methods
-        
+
+        private IEnumerable<object> GetDomainEventHandlers(IDomainEvent domainEvent)
+        { 
+            Type eventType = domainEvent.GetType();
+
+            if (domainEventHandlers.ContainsKey(eventType))
+            {
+                return domainEventHandlers[eventType];
+            }
+            else
+            {
+                List<object> handlers = new List<object>();
+                // firstly create and add all the handler methods defined within the aggregation root.
+                MethodInfo[] allMethods = this.GetType().GetMethods(BindingFlags.Public |
+                    BindingFlags.NonPublic | BindingFlags.Instance);
+
+                var handlerMethods = from method in allMethods
+                                     let returnType = method.ReturnType
+                                     let @params = method.GetParameters()
+                                     let handlerAttributes = method.GetCustomAttributes(typeof(DomainEventHandleAttribute), false)
+                                     where returnType == typeof(void) &&
+                                     @params != null &&
+                                     @params.Count() > 0 &&
+                                     @params[0].ParameterType.Equals(eventType) &&
+                                     handlerAttributes != null &&
+                                     ((DomainEventHandleAttribute)handlerAttributes[0]).DomainEventType.Equals(eventType)
+                                     select new { MethodInfo = method };
+
+                foreach (var handlerMethod in handlerMethods)
+                {
+                    var inlineDomainEventHandlerType = typeof(InlineDomainEventHandler<>).MakeGenericType(eventType);
+                    var inlineDomainEventHandler = Activator.CreateInstance(inlineDomainEventHandlerType,
+                        new object[] { this, handlerMethod.MethodInfo });
+
+                    handlers.Add(inlineDomainEventHandler);
+                }
+                // then read all the registered handlers.
+                domainEventHandlers.Add(eventType, handlers);
+                return handlers;
+            }
+        }
+
         private void HandleEvent<TEvent>(TEvent @event) where TEvent : IDomainEvent
         {
 
@@ -46,10 +89,8 @@ namespace Eagle.Domain
             @event.Timestamp = DateTime.UtcNow;
 
             this.HandleEvent<TEvent>(@event);
-            
             this.uncommittedEvents.Add(@event);
         }
-
 
         #endregion
 

@@ -1,4 +1,0 @@
-C:\MyProjects\NPoco-master\NPoco-master\src\NPoco\bin\Debug\NPoco.dll
-C:\MyProjects\NPoco-master\NPoco-master\src\NPoco\bin\Debug\NPoco.pdb
-C:\MyProjects\NPoco-master\NPoco-master\src\NPoco\obj\Debug\NPoco.dll
-C:\MyProjects\NPoco-master\NPoco-master\src\NPoco\obj\Debug\NPoco.pdb

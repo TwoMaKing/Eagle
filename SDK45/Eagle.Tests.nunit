@@ -1,0 +1,6 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Default" />
+  <Config name="Default" binpathtype="Auto">
+    <assembly path="tests\Eagle.Tests\bin\Debug\Eagle.Tests.dll" />
+  </Config>
+</NUnitProject>

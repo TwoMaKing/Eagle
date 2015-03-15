@@ -1,0 +1,93 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.OrmLite", "ServiceStack.OrmLite\ServiceStack.OrmLite.csproj", "{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.OrmLite.SqlServerV45", "ServiceStack.OrmLite.SqlServerV45\ServiceStack.OrmLite.SqlServerV45.csproj", "{6F851563-08F6-4692-89F8-F1D6C86F0069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.OrmLite.MySqlV45", "..\..\..\..\ServiceStack.OrmLite-master\ServiceStack.OrmLite-master\src\ServiceStack.OrmLite.MySqlV45\ServiceStack.OrmLite.MySqlV45.csproj", "{D1858737-FC4F-4432-8725-E5B79A13D5F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Default|Any CPU = Default|Any CPU
+		Default|Mixed Platforms = Default|Mixed Platforms
+		Default|x86 = Default|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+		Signed|Any CPU = Signed|Any CPU
+		Signed|Mixed Platforms = Signed|Mixed Platforms
+		Signed|x86 = Signed|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Default|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Default|x86.ActiveCfg = Debug|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Release|x86.ActiveCfg = Release|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Signed|Mixed Platforms.ActiveCfg = Signed|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Signed|Mixed Platforms.Build.0 = Signed|Any CPU
+		{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}.Signed|x86.ActiveCfg = Signed|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Default|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Default|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Default|x86.ActiveCfg = Debug|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Release|x86.ActiveCfg = Release|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Signed|Any CPU.ActiveCfg = Release|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Signed|Any CPU.Build.0 = Release|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Signed|Mixed Platforms.ActiveCfg = Signed|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Signed|Mixed Platforms.Build.0 = Signed|Any CPU
+		{6F851563-08F6-4692-89F8-F1D6C86F0069}.Signed|x86.ActiveCfg = Release|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Default|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Default|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Default|x86.ActiveCfg = Debug|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Release|x86.ActiveCfg = Release|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Signed|Any CPU.Build.0 = Signed|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Signed|Mixed Platforms.ActiveCfg = Signed|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Signed|Mixed Platforms.Build.0 = Signed|Any CPU
+		{D1858737-FC4F-4432-8725-E5B79A13D5F6}.Signed|x86.ActiveCfg = Signed|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = ServiceStack.OrmLite.Sqlite\ServiceStack.OrmLite.Sqlite.csproj
+	EndGlobalSection
+EndGlobal

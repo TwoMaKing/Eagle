@@ -29,7 +29,6 @@ namespace Eagle.Tests
     {
         public EAppRepositoryTests() : base() 
         { 
-            
         }
 
         [Test()]

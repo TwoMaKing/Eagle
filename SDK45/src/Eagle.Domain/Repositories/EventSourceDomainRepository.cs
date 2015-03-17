@@ -18,7 +18,7 @@ namespace Eagle.Domain.Repositories
 
         protected override void DoCommit()
         {
-            throw new NotImplementedException();
+
         }
 
         protected override void DoRollback()

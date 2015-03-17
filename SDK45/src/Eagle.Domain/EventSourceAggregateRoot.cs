@@ -18,10 +18,7 @@ namespace Eagle.Domain
         private readonly List<IDomainEvent> uncommittedEvents = new List<IDomainEvent>();
         private readonly Dictionary<Type, List<object>> domainEventHandlers = new Dictionary<Type,List<object>>();
 
-        public EventSourceAggregateRoot()
-        {
-
-        }
+        public EventSourceAggregateRoot() { }
 
         #region Private methods
 
@@ -65,9 +62,19 @@ namespace Eagle.Domain
             }
         }
 
-        private void HandleEvent<TEvent>(TEvent @event) where TEvent : IDomainEvent
+        private void HandleEvent<TEvent>(TEvent @event) where TEvent : class, IDomainEvent
         {
+            Type eventType = typeof(TEvent);
 
+            if (this.domainEventHandlers.ContainsKey(eventType))
+            {
+                var handlers = this.domainEventHandlers[eventType];
+
+                foreach(var handler in handlers)
+                {
+                    ((IDomainEventHandler<TEvent>)handler).Handle(@event);
+                }
+            }
         }
 
         #endregion
@@ -79,7 +86,7 @@ namespace Eagle.Domain
         /// </summary>
         /// <typeparam name="TEvent">The type of the domain event.</typeparam>
         /// <param name="event">The domain event to be raised.</param>
-        protected virtual void RaiseEvent<TEvent>(TEvent @event) where TEvent : IDomainEvent
+        protected virtual void RaiseEvent<TEvent>(TEvent @event) where TEvent : class, IDomainEvent
         {
             @event.Id = (Guid)IdentityGenerator.Instance.Generate();
             @event.Version = ++eventVersion;
@@ -101,7 +108,9 @@ namespace Eagle.Domain
             }
 
             foreach (IDomainEvent domainEvent in historicalEvents)
+            {
                 this.HandleEvent<IDomainEvent>(domainEvent);
+            }
 
             this.version = historicalEvents.Last().Version;
 

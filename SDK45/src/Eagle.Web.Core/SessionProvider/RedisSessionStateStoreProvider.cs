@@ -71,7 +71,7 @@ namespace Eagle.Web.Core.SessionProvider
             //
             // Get <sessionState> configuration element.
             //
-            Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HostingEnvironment.ApplicationVirtualPath);
+            System.Configuration.Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HostingEnvironment.ApplicationVirtualPath);
 
             this.sessionConfigSection = (SessionStateSection)webConfig.GetSection("system.web/sessionState");
 

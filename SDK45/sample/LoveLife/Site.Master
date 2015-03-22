@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="LoveLife.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="Content/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="Content/bootstrap-theme.css" type="text/css" />
+    <link rel="stylesheet" href="Content/Site.css" type="text/css" />
+
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/ui-bootstrap-tpls.min.js"></script>
+    <script src="Scripts/json_parse.js" type="text/javascript" ></script>
+    <script src="Scripts/json2.js" type="text/javascript"></script>
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">
+                        <a runat="server" href="~/">your logo here</a>
+                    </p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li><a runat="server" href="~/">Home</a></li>
+                            <li><a runat="server" href="~/About">About</a></li>
+                            <li><a runat="server" href="~/Contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+            <section class="content-wrapper main-content clear-fix">
+                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                </div>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>

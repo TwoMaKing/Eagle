@@ -20,7 +20,7 @@ namespace Eagle.Web.Core.Routes
 
         public static IRouteContainer Configure(string containerName)
         {
-            return AppRuntime.Instance.CurrentApp.ObjectContainer.Resolve<IRouteContainer>(containerName);
+            return AppRuntime.Instance.CurrentApplication.ObjectContainer.Resolve<IRouteContainer>(containerName);
         }
 
         public static IRouteContainer Configure(Type routeContainerType, params object[] args)

@@ -14,7 +14,6 @@ namespace LoveLife
    
     public class PostPushConnection : PersistentConnection
     {
-
         protected override Task OnConnected(IRequest request, string connectionId)
         {
             return base.OnConnected(request, connectionId);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Eagle.Web.Caches
 {
-    public interface ICacheManager
+    public interface ICacheManager : IDisposable
     {
         /// <summary>
         /// 添加对象到缓存
@@ -26,6 +26,26 @@ namespace Eagle.Web.Caches
         /// 添加对象到缓存指定到期时间
         /// </summary>
         void AddItem<T>(string key, T item, int expire);
+
+        /// <summary>
+        /// 替换指定的缓存对象
+        /// </summary>
+        void Replace(string key, object item);
+
+        /// <summary>
+        /// 替换指定的缓存对象
+        /// </summary>
+        void Replace<T>(string key, T item);
+
+        /// <summary>
+        /// 替换指定的缓存对象
+        /// </summary>
+        void Replace(string key, object item, int expire);
+
+        /// <summary>
+        /// 替换指定的缓存对象
+        /// </summary>
+        void Replace<T>(string key, T item, int expire);
 
         /// <summary>
         /// 是否存在指定Key的Item

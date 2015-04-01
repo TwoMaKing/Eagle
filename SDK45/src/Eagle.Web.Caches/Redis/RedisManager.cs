@@ -9,6 +9,7 @@ using ServiceStack.Redis.Pipeline;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Eagle.Web.Caches
@@ -19,7 +20,9 @@ namespace Eagle.Web.Caches
 
         private static RedisClient redisClient;
 
-        private int expire = AppRuntime.Instance.CurrentApp.ConfigSource.Config.Redis.TimeOutSeconds;
+        private int expire = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Redis.TimeOutSeconds;
+
+        private static MethodInfo replaceMethod;
 
         static RedisManager()
         {
@@ -28,18 +31,20 @@ namespace Eagle.Web.Caches
 
         private static void CreateRedisClient() 
         {
-            string writeServerList = AppRuntime.Instance.CurrentApp.ConfigSource.Config.Redis.WriteHosts;
-            string readOnlyServerList = AppRuntime.Instance.CurrentApp.ConfigSource.Config.Redis.ReadOnlyHosts;
+            string writeServerList = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Redis.WriteHosts;
+            string readOnlyServerList = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Redis.ReadOnlyHosts;
 
             string[] writeHosts = writeServerList.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
             string[] readOnlyHosts = readOnlyServerList.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
 
             RedisClientManagerConfig config = new RedisClientManagerConfig();
-            config.MaxWritePoolSize = AppRuntime.Instance.CurrentApp.ConfigSource.Config.Redis.MaxWritePoolSize;
-            config.MaxReadPoolSize = AppRuntime.Instance.CurrentApp.ConfigSource.Config.Redis.MaxReadPoolSize;
-            config.AutoStart = AppRuntime.Instance.CurrentApp.ConfigSource.Config.Redis.AutoStart;
+            config.MaxWritePoolSize = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Redis.MaxWritePoolSize;
+            config.MaxReadPoolSize = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Redis.MaxReadPoolSize;
+            config.AutoStart = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Redis.AutoStart;
 
             redisClientManager = new PooledRedisClientManager(writeHosts, readOnlyHosts, config);
+
+            replaceMethod = typeof(RedisClient).GetMethod("Replace", BindingFlags.Instance | BindingFlags.Public);
 
             redisClient = (RedisClient)redisClientManager.GetClient();
         }
@@ -53,7 +58,7 @@ namespace Eagle.Web.Caches
         {
             byte[] objectBytes = SerializationManager.SerializeToBinary(item);
 
-            redisClient.Set(key, objectBytes, new TimeSpan(expire));
+            redisClient.Set(key, objectBytes, DateTime.Now.AddSeconds(expire));
         }
 
         public void AddItem<T>(string key, T item)
@@ -63,7 +68,35 @@ namespace Eagle.Web.Caches
 
         public void AddItem<T>(string key, T item, int expire)
         {
-            redisClient.Set<T>(key, item, new TimeSpan(expire));
+            redisClient.Set<T>(key, item, DateTime.Now.AddSeconds(expire));
+        }
+
+        public void Replace(string key, object item)
+        {
+            Type itemType = item.GetType();
+
+            MethodInfo genericReplaceMethod = replaceMethod.MakeGenericMethod(itemType);
+
+            genericReplaceMethod.Invoke(redisClient, new object[] { key, item });
+        }
+
+        public void Replace<T>(string key, T item)
+        {
+            redisClient.Replace<T>(key, item);
+        }
+
+        public void Replace(string key, object item, int expire)
+        {
+            Type itemType = item.GetType();
+
+            MethodInfo genericReplaceMethod = replaceMethod.MakeGenericMethod(itemType);
+
+            genericReplaceMethod.Invoke(redisClient, new object[] { key, item, DateTime.Now.AddSeconds(expire) });
+        }
+
+        public void Replace<T>(string key, T item, int expire)
+        {
+            redisClient.Replace<T>(key, item, DateTime.Now.AddSeconds(expire));
         }
 
         public bool ContainsKey(string key)
@@ -91,6 +124,11 @@ namespace Eagle.Web.Caches
         public void FlushAll()
         {
             redisClient.FlushAll();
+        }
+
+        public void Dispose()
+        {
+            redisClient.Dispose();
         }
     }
 }

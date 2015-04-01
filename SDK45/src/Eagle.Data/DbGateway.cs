@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Eagle.Core.Exceptions;
+using Eagle.Data.Queries;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
-using Eagle.Core.Exceptions;
-using Eagle.Data.Queries;
 
 namespace Eagle.Data
 {

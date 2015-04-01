@@ -35,7 +35,7 @@ namespace Eagle.Core.Application
         /// <summary>
         /// The instance of the current application.
         /// </summary>
-        public IApp CurrentApp 
+        public IApp CurrentApplication 
         {
             get 
             {
@@ -103,9 +103,9 @@ namespace Eagle.Core.Application
         /// </summary>
         public TApp GetApp<TApp>() where TApp : IApp
         {
-            if (this.CurrentApp != null)
+            if (this.CurrentApplication != null)
             {
-                return (TApp)this.CurrentApp;
+                return (TApp)this.CurrentApplication;
             }
 
             return default(TApp);

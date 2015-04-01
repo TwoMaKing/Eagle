@@ -36,7 +36,7 @@ namespace Eagle.Repositories.Sql
             }
             else
             {
-                throw new ArgumentException("The specified Repository context is not the instance of ISqlRepositoryContext.");
+                throw new ArgumentException("The provided repository context type is invalid. SqlRepository requires an instance of SqlRepositoryContext to be initialized.");
             }
         }
 

@@ -81,12 +81,13 @@
     <Compile Include="Configuration\RouteConfigurationSection.cs" />
     <Compile Include="PageCaches\CacheItem.cs" />
     <Compile Include="PageCaches\FileOutputCacheProvider.cs" />
+    <Compile Include="PageCaches\MongoDBOutputCacheProvider.cs" />
     <Compile Include="Routes\ConfigRouteProvider.cs" />
     <Compile Include="Routes\IRouteContainer.cs" />
     <Compile Include="Routes\IRouteProvider.cs" />
     <Compile Include="Routes\RouteContainer.cs" />
     <Compile Include="Routes\RouteItem.cs" />
-    <Compile Include="SessionProvider\MemcacheSessionStateStoreProvider.cs" />
+    <Compile Include="SessionProvider\MongoDBSessionStateStoreProvider.cs" />
     <Compile Include="SessionProvider\RedisSessionStateStoreProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionProvider\SessionItem.cs" />
@@ -102,6 +103,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

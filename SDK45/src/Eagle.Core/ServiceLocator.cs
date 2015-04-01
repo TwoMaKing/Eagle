@@ -1,8 +1,6 @@
 ﻿using Eagle.Core;
 using Eagle.Core.Application;
 using Eagle.Core.IoC;
-using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,7 +17,7 @@ namespace Eagle.Core
 
         private ServiceLocator() 
         {
-            this.objectContainer = AppRuntime.Instance.CurrentApp.ObjectContainer;
+            this.objectContainer = AppRuntime.Instance.CurrentApplication.ObjectContainer;
         }
 
         public static ServiceLocator Instance 

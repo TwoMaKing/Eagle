@@ -14,7 +14,7 @@ namespace Eagle.Domain.Commands
         {
             IDictionary<Type, Type> commandHandlerDictionary = new Dictionary<Type, Type>();
 
-            HandlerElementCollection handlerElements = AppRuntime.Instance.CurrentApp.ConfigSource.Config.Handlers;
+            HandlerElementCollection handlerElements = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Handlers;
 
             if (handlerElements != null &&
                 handlerElements.Count > 0)

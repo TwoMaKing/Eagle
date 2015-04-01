@@ -42,26 +42,26 @@ namespace Eagle.Repositories.Dapper
 
         public DapperRepositoryContext(string connectionStringSectionName)
         {
-            ConnectionStringSettings connectionStringSettings = ConfigurationManager.ConnectionStrings[connectionStringSectionName];
+            ConnectionStringSettings connectionStringSetting = ConfigurationManager.ConnectionStrings[connectionStringSectionName];
 
-            if (connectionStringSettings == null)
+            if (connectionStringSetting == null)
             {
                 throw new ConfigException("The connection string section {0} has not been configured yet.", connectionStringSectionName);
             }
 
-            if (!connectionStringSettings.ProviderName.HasValue())
+            if (!connectionStringSetting.ProviderName.HasValue())
             {
                 throw new ConfigException("The provider name has not been specified in the connection string settings section yet.");
             }
 
-            if (!connectionStringSettings.ConnectionString.HasValue())
+            if (!connectionStringSetting.ConnectionString.HasValue())
             {
                 throw new ConfigException("The connection string has not been specified in the connection string settings section yet.");
             }
 
-            this.providerName = connectionStringSettings.ProviderName;
+            this.providerName = connectionStringSetting.ProviderName;
 
-            this.connectionString = connectionStringSettings.ConnectionString;
+            this.connectionString = connectionStringSetting.ConnectionString;
         }
 
         public DapperRepositoryContext(string providerName, string connectionString)
@@ -158,7 +158,7 @@ namespace Eagle.Repositories.Dapper
         protected override IRepository<TAggregateRoot> CreateRepository<TAggregateRoot>()
         {
             IEnumerable<Type> repositoryTypesMapTo =
-                AppRuntime.Instance.CurrentApp.ObjectContainer.TypesMapTo.Where(t => typeof(DapperRepository<TAggregateRoot>).IsAssignableFrom(t));
+                AppRuntime.Instance.CurrentApplication.ObjectContainer.TypesMapTo.Where(t => typeof(DapperRepository<TAggregateRoot>).IsAssignableFrom(t));
 
             Type repositoryType = repositoryTypesMapTo.FirstOrDefault();
 
@@ -170,7 +170,7 @@ namespace Eagle.Repositories.Dapper
             }
 
             return (IRepository<TAggregateRoot>)
-                    AppRuntime.Instance.CurrentApp.
+                    AppRuntime.Instance.CurrentApplication.
                     ObjectContainer.Resolve(repositoryType,
                                             new ResolverParameter(constructorInfo.GetParameters()[0].Name, this));
         }

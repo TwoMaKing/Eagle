@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Eagle.Core.QuerySepcifications
 {
-    public class AnySepcification<T> : Specification<T>
+    public class AnySpecification<T> : Specification<T>
     {
         public override Expression<Func<T, bool>> GetExpression()
         {

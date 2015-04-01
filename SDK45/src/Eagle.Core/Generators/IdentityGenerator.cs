@@ -19,26 +19,26 @@ namespace Eagle.Core.Generators
 
         private IdentityGenerator()
         {
-            if (AppRuntime.Instance.CurrentApp == null)
+            if (AppRuntime.Instance.CurrentApplication == null)
             {
                 throw new EagleAppException("The application has not been initialized and started yet.");
             }
 
-            if (AppRuntime.Instance.CurrentApp.ConfigSource == null ||
-                AppRuntime.Instance.CurrentApp.ConfigSource.Config == null ||
-                AppRuntime.Instance.CurrentApp.ConfigSource.Config.Generators == null ||
-                AppRuntime.Instance.CurrentApp.ConfigSource.Config.Generators.IdentityGenerator == null ||
-                string.IsNullOrEmpty(AppRuntime.Instance.CurrentApp.ConfigSource.Config.Generators.IdentityGenerator.Provider))
+            if (AppRuntime.Instance.CurrentApplication.ConfigSource == null ||
+                AppRuntime.Instance.CurrentApplication.ConfigSource.Config == null ||
+                AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Generators == null ||
+                AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Generators.IdentityGenerator == null ||
+                string.IsNullOrEmpty(AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Generators.IdentityGenerator.Provider))
             {
                 generator = new SequentialIdentityGenerator();
             }
             else
             {
-                Type type = Type.GetType(AppRuntime.Instance.CurrentApp.ConfigSource.Config.Generators.IdentityGenerator.Provider);
+                Type type = Type.GetType(AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Generators.IdentityGenerator.Provider);
 
                 if (type == null)
                 {
-                    throw new ConfigException("Unable to create the type from the name {0}.", AppRuntime.Instance.CurrentApp.ConfigSource.Config.Generators.IdentityGenerator.Provider);
+                    throw new ConfigException("Unable to create the type from the name {0}.", AppRuntime.Instance.CurrentApplication.ConfigSource.Config.Generators.IdentityGenerator.Provider);
                 }
 
                 if (type.Equals(this.GetType()))

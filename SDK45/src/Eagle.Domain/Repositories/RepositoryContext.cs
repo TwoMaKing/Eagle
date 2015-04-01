@@ -133,13 +133,6 @@ namespace Eagle.Domain.Repositories
             this.committed = false;
         }
 
-        public void Dispose()
-        {
-            this.Dispose(true);
-
-            GC.SuppressFinalize(this);
-        }
-
         protected IEnumerable<object> AddedNewCollection
         {
             get

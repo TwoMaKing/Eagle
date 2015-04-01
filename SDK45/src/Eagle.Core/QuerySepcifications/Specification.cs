@@ -19,7 +19,6 @@ namespace Eagle.Core.QuerySepcifications
             return new ExpressionSpecification<T>(expression);
         }
 
-
         public bool IsSatisfiedBy(T obj)
         {
             return this.GetExpression().Compile()(obj);

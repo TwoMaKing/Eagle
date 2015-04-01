@@ -17,7 +17,7 @@ namespace Eagle.Common.Cache
 
         public static ICacheManager GetCacheManager() 
         {
-            string defaultCacheManager = AppRuntime.Instance.CurrentApp.ConfigSource.Config.CacheManagers.Default;
+            string defaultCacheManager = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.CacheManagers.Default;
 
             if (string.IsNullOrEmpty(defaultCacheManager) ||
                 string.IsNullOrWhiteSpace(defaultCacheManager))
@@ -30,7 +30,7 @@ namespace Eagle.Common.Cache
 
         public static ICacheManager GetCacheManager(string name)
         {
-            string cacheManagerTypeName = AppRuntime.Instance.CurrentApp.ConfigSource.Config.CacheManagers[name].Type;
+            string cacheManagerTypeName = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.CacheManagers[name].Type;
 
             if (cacheManagerDictionary.ContainsKey(cacheManagerTypeName))
             {
@@ -60,7 +60,7 @@ namespace Eagle.Common.Cache
             {
                 if (!cacheManagerDictionary.ContainsKey(cacheManagerTypeName))
                 {
-                    cacheManager = (ICacheManager)AppRuntime.Instance.CurrentApp.ObjectContainer.Resolve(cacheManagerType,
+                    cacheManager = (ICacheManager)AppRuntime.Instance.CurrentApplication.ObjectContainer.Resolve(cacheManagerType,
                                                                                                           cacheManagerTypeName);
 
                     cacheManagerDictionary.Add(cacheManagerTypeName, cacheManager);

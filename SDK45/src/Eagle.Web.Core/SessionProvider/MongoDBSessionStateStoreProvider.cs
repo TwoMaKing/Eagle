@@ -1,4 +1,5 @@
 ﻿using Eagle.Core.Exceptions;
+using MongoDB;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -14,8 +15,13 @@ using System.Web.SessionState;
 
 namespace Eagle.Web.Core.SessionProvider
 {
-    public class MemcacheSessionStateStoreProvider : SessionStateStoreProviderBase
+    public class MongoDBSessionStateStoreProvider : SessionStateStoreProviderBase
     {
+        public override void Initialize(string name, NameValueCollection config)
+        {
+            base.Initialize(name, config);
+        }
+
         public override SessionStateStoreData CreateNewStoreData(HttpContext context, int timeout)
         {
             throw new NotImplementedException();

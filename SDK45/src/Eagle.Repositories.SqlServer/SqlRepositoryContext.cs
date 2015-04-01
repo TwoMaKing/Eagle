@@ -68,7 +68,7 @@ namespace Eagle.Repositories.Sql
         {
             get
             {
-                return true;
+                return false;
             }
         }
 
@@ -119,11 +119,11 @@ namespace Eagle.Repositories.Sql
         protected override IRepository<TAggregateRoot> CreateRepository<TAggregateRoot>()
         {
             IEnumerable<Type> repositoryTypesMapTo =
-                AppRuntime.Instance.CurrentApp.ObjectContainer.TypesMapTo.Where(t => typeof(SqlRepository<TAggregateRoot>).IsAssignableFrom(t));
+                AppRuntime.Instance.CurrentApplication.ObjectContainer.TypesMapTo.Where(t => typeof(SqlRepository<TAggregateRoot>).IsAssignableFrom(t));
 
             Type repositoryType = repositoryTypesMapTo.FirstOrDefault();
 
-            IUnityContainer unityContainer = AppRuntime.Instance.CurrentApp.ObjectContainer.GetWrapperContainer<IUnityContainer>();
+            IUnityContainer unityContainer = AppRuntime.Instance.CurrentApplication.ObjectContainer.GetWrapperContainer<IUnityContainer>();
 
             return (IRepository<TAggregateRoot>)unityContainer.Resolve(repositoryType,  new DependencyOverride<IRepositoryContext>(this));
         }

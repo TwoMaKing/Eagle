@@ -16,7 +16,7 @@ namespace Eagle.Common.Serialization
 
         public static IObjectSerializer GetObjectSerializer() 
         {
-            string defaultObjectSerializerName = AppRuntime.Instance.CurrentApp.ConfigSource.Config.SerializationFormats.Default;
+            string defaultObjectSerializerName = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.SerializationFormats.Default;
 
             if (string.IsNullOrEmpty(defaultObjectSerializerName))
             {
@@ -28,7 +28,7 @@ namespace Eagle.Common.Serialization
 
         public static IObjectSerializer GetObjectSerializer(string serializerName) 
         {
-            string objectSerializerTypeName = AppRuntime.Instance.CurrentApp.ConfigSource.Config.SerializationFormats[serializerName].Type;
+            string objectSerializerTypeName = AppRuntime.Instance.CurrentApplication.ConfigSource.Config.SerializationFormats[serializerName].Type;
 
             if (objectSerializerDictionary.ContainsKey(objectSerializerTypeName))
             {
@@ -58,8 +58,8 @@ namespace Eagle.Common.Serialization
             {
                 if (!objectSerializerDictionary.ContainsKey(objectSerializerTypeName))
                 {
-                    objectSerializer = (IObjectSerializer)AppRuntime.Instance.CurrentApp.ObjectContainer.Resolve(objectSerializerType,
-                                                                                                                  objectSerializerTypeName);
+                    objectSerializer = (IObjectSerializer)AppRuntime.Instance.CurrentApplication.ObjectContainer.Resolve(objectSerializerType,
+                                                                                                                         objectSerializerTypeName);
 
                     objectSerializerDictionary.Add(objectSerializerTypeName, objectSerializer);
                 }

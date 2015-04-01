@@ -28,7 +28,7 @@ namespace Eagle.Domain.Commands
         public static ICommandDispatcher Configure(ICommandHandlerProvider commandHandlerProvider,
                                                    string dispatcherName) 
         {
-            ICommandDispatcher commandDispatcher = AppRuntime.Instance.CurrentApp.ObjectContainer.Resolve<ICommandDispatcher>(dispatcherName);
+            ICommandDispatcher commandDispatcher = AppRuntime.Instance.CurrentApplication.ObjectContainer.Resolve<ICommandDispatcher>(dispatcherName);
 
             CreateCommandHandlers(commandDispatcher, commandHandlerProvider);
 
@@ -148,9 +148,9 @@ namespace Eagle.Domain.Commands
 
                 foreach (KeyValuePair<Type, Type> commandHandlerPair in commandHandlerTypes)
                 {
-                    if (!AppRuntime.Instance.CurrentApp.ObjectContainer.Registered(commandHandlerPair.Value))
+                    if (!AppRuntime.Instance.CurrentApplication.ObjectContainer.Registered(commandHandlerPair.Value))
                     {
-                        AppRuntime.Instance.CurrentApp.ObjectContainer.RegisterType(commandHandlerPair.Value);
+                        AppRuntime.Instance.CurrentApplication.ObjectContainer.RegisterType(commandHandlerPair.Value);
                     }
 
                     MethodInfo genericRegisterMethod = registerMethod.MakeGenericMethod(commandHandlerPair.Key);
@@ -158,7 +158,7 @@ namespace Eagle.Domain.Commands
                     genericRegisterMethod.Invoke(commandDispatcher,
                                                  new object[] 
                                                  { 
-                                                     AppRuntime.Instance.CurrentApp.ObjectContainer.Resolve(commandHandlerPair.Value) 
+                                                     AppRuntime.Instance.CurrentApplication.ObjectContainer.Resolve(commandHandlerPair.Value) 
                                                  });
                 }
             }

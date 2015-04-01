@@ -34,15 +34,15 @@ namespace Eagle.Core
         /// </summary>
         public void SetControllerFactory(Type controllerFactoryType) 
         {
-            if (AppRuntime.Instance.CurrentApp != null &&
-                AppRuntime.Instance.CurrentApp.ObjectContainer != null)
+            if (AppRuntime.Instance.CurrentApplication != null &&
+                AppRuntime.Instance.CurrentApplication.ObjectContainer != null)
             {
-                if (!AppRuntime.Instance.CurrentApp.ObjectContainer.Registered(controllerFactoryType))
+                if (!AppRuntime.Instance.CurrentApplication.ObjectContainer.Registered(controllerFactoryType))
                 {
-                    AppRuntime.Instance.CurrentApp.ObjectContainer.RegisterType(controllerFactoryType);
+                    AppRuntime.Instance.CurrentApplication.ObjectContainer.RegisterType(controllerFactoryType);
                 }
 
-                this.controllerFactory = (IControllerFactory)AppRuntime.Instance.CurrentApp.ObjectContainer.Resolve(controllerFactoryType);
+                this.controllerFactory = (IControllerFactory)AppRuntime.Instance.CurrentApplication.ObjectContainer.Resolve(controllerFactoryType);
             }
             else
             {

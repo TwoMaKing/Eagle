@@ -226,6 +226,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Push\PostPushConnection.cs" />
     <Compile Include="Push\PushHub.cs" />
+    <Compile Include="RedPacket\FixedAmountDispatchMode.cs" />
+    <Compile Include="RedPacket\ChatGroup.cs" />
+    <Compile Include="RedPacket\IDispatchMode.cs" />
+    <Compile Include="RedPacket\IRedPacketDispatcher.cs" />
+    <Compile Include="RedPacket\IRedPacketReceiver.cs" />
+    <Compile Include="RedPacket\RandomAmountDispatchMode.cs" />
+    <Compile Include="RedPacket\RedPacketDispatcher.cs" />
+    <Compile Include="RedPacket\RedPacketScenario.cs" />
+    <Compile Include="RedPacket\RedPacket.cs" />
+    <Compile Include="RedPacket\User.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,6 +276,9 @@
       <Project>{edff63ab-3b20-41e6-869d-26aa995de025}</Project>
       <Name>Eagle.Tests.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

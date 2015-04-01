@@ -128,6 +128,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Configuration\EAppDataConfigurationSection.csd">
       <Generator>CsdFileGenerator</Generator>
       <LastGenOutput>EAppDataConfigurationSection.csd.cs</LastGenOutput>

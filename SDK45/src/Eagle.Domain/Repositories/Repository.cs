@@ -69,17 +69,17 @@ namespace Eagle.Domain.Repositories
 
         public IEnumerable<TAggregateRoot> FindAll()
         {
-            return this.DoFindAll(new AnySepcification<TAggregateRoot>().GetExpression(), TAggregateRoot => TAggregateRoot.Id, SortOrder.None);
+            return this.DoFindAll(new AnySpecification<TAggregateRoot>().GetExpression(), TAggregateRoot => TAggregateRoot.Id, SortOrder.None);
         }
 
         public IEnumerable<TAggregateRoot> FindAll(Expression<Func<TAggregateRoot, object>> sortPredicate, SortOrder sortOrder)
         {
-            return this.DoFindAll(new AnySepcification<TAggregateRoot>().GetExpression(), sortPredicate, sortOrder);
+            return this.DoFindAll(new AnySpecification<TAggregateRoot>().GetExpression(), sortPredicate, sortOrder);
         }
 
         public IPagingResult<TAggregateRoot> FindAll(Expression<Func<TAggregateRoot, object>> sortPredicate, SortOrder sortOrder, int pageNumber, int pageSize)
         {
-            return this.DoFindAll(new AnySepcification<TAggregateRoot>().GetExpression(), sortPredicate, sortOrder, pageNumber, pageSize);
+            return this.DoFindAll(new AnySpecification<TAggregateRoot>().GetExpression(), sortPredicate, sortOrder, pageNumber, pageSize);
         }
 
         public IEnumerable<TAggregateRoot> FindAll(Expression<Func<TAggregateRoot, bool>> expression)

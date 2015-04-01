@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\packages\Memcached\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="MemcachedProviders">
+      <HintPath>..\packages\Memcached\MemcachedProviders.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack.Common">
       <HintPath>..\packages\ServiceStack\ServiceStack.Common.dll</HintPath>
     </Reference>
@@ -54,6 +60,7 @@
   <ItemGroup>
     <Compile Include="CacheFactory.cs" />
     <Compile Include="ICacheManager.cs" />
+    <Compile Include="Memcached\MemcachedManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redis\RedisManager.cs" />
   </ItemGroup>
@@ -68,7 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Memcached\" />
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

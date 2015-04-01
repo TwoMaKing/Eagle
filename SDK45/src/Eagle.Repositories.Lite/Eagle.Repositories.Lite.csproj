@@ -46,6 +46,7 @@
       <HintPath>..\packages\ServiceStack\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\OrmLiteDialectProviderFactories.cs" />
+    <Compile Include="Adapter\IOrmLiteDialectProviderFactory.cs" />
+    <Compile Include="Adapter\MySqlOrmLiteDialectProviderFactory.cs" />
+    <Compile Include="Adapter\SqlServerOrmLiteDialectProviderFactory.cs" />
     <Compile Include="ILiteRepositoryContext.cs" />
     <Compile Include="LiteRepository.cs" />
     <Compile Include="LiteRepositoryContext.cs" />
@@ -62,6 +67,18 @@
     <ProjectReference Include="..\..\..\..\ServiceStack.OrmLite-master\ServiceStack.OrmLite-master\src\ServiceStack.OrmLite.MySqlV45\ServiceStack.OrmLite.MySqlV45.csproj">
       <Project>{d1858737-fc4f-4432-8725-e5b79a13d5f6}</Project>
       <Name>ServiceStack.OrmLite.MySqlV45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Common\Eagle.Common.csproj">
+      <Project>{0cb524d0-68cb-47b8-8b9f-9915cbe19f31}</Project>
+      <Name>Eagle.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Core\Eagle.Core.csproj">
+      <Project>{ddcadbee-4c66-43bd-a1c8-76265134b9f2}</Project>
+      <Name>Eagle.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Domain\Eagle.Domain.csproj">
+      <Project>{3b98f11d-5383-4856-b82a-9eb6ae800603}</Project>
+      <Name>Eagle.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceStack\ServiceStack.OrmLite.SqlServerV45\ServiceStack.OrmLite.SqlServerV45.csproj">
       <Project>{6f851563-08f6-4692-89f8-f1d6c86f0069}</Project>

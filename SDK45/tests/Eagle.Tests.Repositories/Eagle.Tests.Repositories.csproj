@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88554C06-0A93-4EE2-BF13-670433414698}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eagle.Tests.Repositories</RootNamespace>
+    <AssemblyName>Eagle.Tests.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dapper\DapperCommentRepository.cs" />
+    <Compile Include="Dapper\DapperPostRepository.cs" />
+    <Compile Include="Dapper\DapperTopicRepository.cs" />
+    <Compile Include="Dapper\DapperUserRepository.cs" />
+    <Compile Include="Sql\CommentRepository.cs" />
+    <Compile Include="Sql\PostRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sql\TopicRepository.cs" />
+    <Compile Include="Sql\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Eagle.Common\Eagle.Common.csproj">
+      <Project>{0CB524D0-68CB-47B8-8B9F-9915CBE19F31}</Project>
+      <Name>Eagle.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Eagle.Core\Eagle.Core.csproj">
+      <Project>{DDCADBEE-4C66-43BD-A1C8-76265134B9F2}</Project>
+      <Name>Eagle.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Eagle.Data\Eagle.Data.csproj">
+      <Project>{0C072ED7-DAB6-4657-B92B-65EB54810774}</Project>
+      <Name>Eagle.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Eagle.Domain\Eagle.Domain.csproj">
+      <Project>{3B98F11D-5383-4856-B82A-9EB6AE800603}</Project>
+      <Name>Eagle.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Eagle.Repositories.Dapper\Eagle.Repositories.Dapper.csproj">
+      <Project>{770eafe0-b840-4a4a-b32d-fe19ddd8603a}</Project>
+      <Name>Eagle.Repositories.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Eagle.Repositories.SqlServer\Eagle.Repositories.Sql.csproj">
+      <Project>{69820BD8-912B-461F-BDC2-AFA43E318953}</Project>
+      <Name>Eagle.Repositories.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eagle.Tests.Domain\Eagle.Tests.Domain.csproj">
+      <Project>{EDFF63AB-3B20-41E6-869D-26AA995DE025}</Project>
+      <Name>Eagle.Tests.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

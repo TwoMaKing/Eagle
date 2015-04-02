@@ -1,4 +1,0 @@
-C:\MyProjects\GitHub WorkSpace\EApp\Xpress.Chart.Services\bin\Debug\Xpress.Chart.Services.dll
-C:\MyProjects\GitHub WorkSpace\EApp\Xpress.Chart.Services\bin\Debug\Xpress.Chart.Services.pdb
-C:\MyProjects\GitHub WorkSpace\EApp\Xpress.Chart.Services\obj\Debug\Xpress.Chart.Services.dll
-C:\MyProjects\GitHub WorkSpace\EApp\Xpress.Chart.Services\obj\Debug\Xpress.Chart.Services.pdb

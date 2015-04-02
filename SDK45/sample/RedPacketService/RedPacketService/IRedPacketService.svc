@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="RedPacketService.Service1" CodeBehind="IRedPacketService.svc.cs" %>

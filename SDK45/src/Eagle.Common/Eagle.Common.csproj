@@ -113,11 +113,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\Reflector.cs" />
     <Compile Include="Serialization\SerializationManager.cs" />
+    <Compile Include="Utils\RegexUtils.cs" />
     <Compile Include="Win32API\Win32WindowHandler.cs" />
     <Compile Include="Win32API\Win32API.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
